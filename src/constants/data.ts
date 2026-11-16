@@ -1,0 +1,108 @@
+import { icons } from "./icons";
+
+export const tabs = [
+  { name: "index", title: "Home", icon: icons.home },
+  { name: "subscriptions", title: "Subscriptions", icon: icons.wallet },
+  { name: "insights", title: "Insights", icon: icons.activity },
+  { name: "settings", title: "Settings", icon: icons.setting },
+];
+
+export const upcomingRenewals = [
+  {
+    id: "1",
+    name: "Spotify",
+    price: "$5.99",
+    dueDate: "2 days left",
+    icon: icons.spotify,
+  },
+  {
+    id: "2",
+    name: "Notion",
+    price: "$12.00",
+    dueDate: "4 days left",
+    icon: icons.notion,
+  },
+  {
+    id: "3",
+    name: "Figma",
+    price: "$15.00",
+    dueDate: "7 days left",
+    icon: icons.figma,
+  },
+  {
+    id: "4",
+    name: "Claude Pro",
+    price: "$20.00",
+    dueDate: "12 days left",
+    icon: icons.claude,
+  },
+];
+
+export const allSubscriptions = [
+  {
+    id: "1",
+    name: "Adobe Creative Cloud",
+    category: "Design",
+    price: "$77.49",
+    billing: "Monthly",
+    firstBill: "Jan 18, 2024",
+    paymentMethod: "Mastercard (1234)",
+    icon: icons.adobe,
+    color: "#eed766",
+  },
+  {
+    id: "2",
+    name: "GitHub Pro",
+    category: "Developer Tools",
+    price: "$9.99",
+    billing: "Monthly",
+    firstBill: "Feb 05, 2024",
+    paymentMethod: "Visa (5678)",
+    icon: icons.github,
+    color: "#ded2f9",
+  },
+  {
+    id: "3",
+    name: "Claude Pro",
+    category: "AI Tools",
+    price: "$20.00",
+    billing: "Monthly",
+    firstBill: "Feb 01, 2024",
+    paymentMethod: "Visa (1234)",
+    icon: icons.claude,
+    color: "#cfe2fe",
+  },
+  {
+    id: "4",
+    name: "Canva Pro",
+    category: "Design",
+    price: "$119.99",
+    billing: "Yearly",
+    firstBill: "Mar 15, 2024",
+    paymentMethod: "Mastercard (9012)",
+    icon: icons.canva,
+    color: "#c6f1d6",
+  },
+  {
+    id: "5",
+    name: "Spotify",
+    category: "Entertainment",
+    price: "$9.99",
+    billing: "Monthly",
+    firstBill: "Jan 15, 2024",
+    paymentMethod: "Mastercard (4242)",
+    icon: icons.spotify,
+    color: "#88e7a4",
+  },
+  {
+    id: "6",
+    name: "Notion",
+    category: "Productivity",
+    price: "$8.00",
+    billing: "Monthly",
+    firstBill: "Apr 20, 2024",
+    paymentMethod: "Apple Pay",
+    icon: icons.notion,
+    color: "#eadece",
+  },
+];
