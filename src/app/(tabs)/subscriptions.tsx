@@ -4,7 +4,7 @@ import CreateSubscriptionModal, {
 import SubscriptionCard from "@/components/SubscriptionCard";
 import { useSubscriptions } from "@/context/SubscriptionContext";
 import { Ionicons } from "@expo/vector-icons";
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { FlatList, Pressable, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -18,8 +18,8 @@ export default function SubscriptionsScreen() {
     const q = searchQuery.toLowerCase().trim();
     return subscriptions.filter(
       (s) =>
-        s.name.toLowerCase().includes(q) ||
-        s.category?.toLowerCase().includes(q)
+        (s?.name || "").toLowerCase().includes(q) ||
+        (s?.category || "").toLowerCase().includes(q),
     );
   }, [subscriptions, searchQuery]);
 

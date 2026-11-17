@@ -1,4 +1,5 @@
 import { icons } from "@/constants/icons";
+import { posthog } from "@/config/posthog";
 import {
   detectBrand,
   getInitials,
@@ -146,6 +147,15 @@ export default function CreateSubscriptionModal({
     };
 
     onAdd(newSub);
+    posthog?.capture("subscription_created", {
+      category: finalCategory,
+      billing_frequency: frequency.toLowerCase(),
+    });
+    posthog?.logger?.info("subscription created", {
+      event: "subscription_created",
+      category: finalCategory,
+      billing_frequency: frequency.toLowerCase(),
+    });
     handleClose();
   };
 

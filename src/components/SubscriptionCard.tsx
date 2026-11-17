@@ -1,4 +1,5 @@
 import clsx from "@/utils/clsx";
+import { posthog } from "@/config/posthog";
 import React, { useState } from "react";
 import { Alert, Pressable, Text, View } from "react-native";
 import { useSubscriptions } from "@/context/SubscriptionContext";
@@ -49,6 +50,15 @@ export default function SubscriptionCard({ item }: SubscriptionCardProps) {
           style: "destructive",
           onPress: () => {
             removeSubscription(item.id);
+            posthog?.capture("subscription_cancelled", {
+              category: item.category,
+              billing_frequency: item.billing.toLowerCase(),
+            });
+            posthog?.logger?.info("subscription cancelled", {
+              event: "subscription_cancelled",
+              category: item.category,
+              billing_frequency: item.billing.toLowerCase(),
+            });
           },
         },
       ]

@@ -62,8 +62,8 @@ export default function SignUpScreen() {
     if (!password) {
       setPasswordError("Password is required");
       isValid = false;
-    } else if (password.length < 8) {
-      setPasswordError("Password must be at least 8 characters");
+    } else if (password.length < 15) {
+      setPasswordError("Password must be at least 15 characters");
       isValid = false;
     }
 
@@ -401,7 +401,7 @@ export default function SignUpScreen() {
                 error={passwordError}
               />
               <Text className="-mt-2 mb-2 text-xs font-sans-regular text-muted-foreground">
-                Minimum 8 characters required
+                Minimum 15 characters required
               </Text>
             </View>
 

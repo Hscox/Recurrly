@@ -4,6 +4,7 @@ import React from "react";
 import { Alert, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import SubscriptionIcon from "@/components/SubscriptionIcon";
+import { posthog } from "@/config/posthog";
 import { useSubscriptions } from "@/context/SubscriptionContext";
 import { getSubscriptionColor } from "@/utils/subscriptionUtils";
 
@@ -52,6 +53,15 @@ export default function SubscriptionDetails() {
           style: "destructive",
           onPress: () => {
             removeSubscription(subscription.id);
+            posthog?.capture("subscription_cancelled", {
+              category: subscription.category,
+              billing_frequency: subscription.billing.toLowerCase(),
+            });
+            posthog?.logger?.info("subscription cancelled", {
+              event: "subscription_cancelled",
+              category: subscription.category,
+              billing_frequency: subscription.billing.toLowerCase(),
+            });
             router.back();
           },
         },

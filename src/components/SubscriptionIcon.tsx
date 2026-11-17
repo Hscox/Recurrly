@@ -20,12 +20,12 @@ interface SubscriptionIconProps {
 }
 
 export default function SubscriptionIcon({ item, size = 56 }: SubscriptionIconProps) {
-  const name = item.name || '';
+  const name = item?.name || '';
   const detected = detectBrand(name);
 
   // 1. If custom image URL
-  if (item.imageUrl || (item.icon && typeof item.icon === 'object' && item.icon.uri)) {
-    const source = item.imageUrl ? { uri: item.imageUrl } : item.icon;
+  if (item?.imageUrl || (item?.icon && typeof item.icon === 'object' && item.icon.uri)) {
+    const source = item?.imageUrl ? { uri: item.imageUrl } : item.icon;
     return (
       <View
         style={{
@@ -54,7 +54,7 @@ export default function SubscriptionIcon({ item, size = 56 }: SubscriptionIconPr
   }
 
   // 2. If valid bundled image (not empty wallet placeholder)
-  if (item.icon && item.icon !== icons.wallet) {
+  if (item?.icon && item.icon !== icons.wallet) {
     return (
       <Image
         source={item.icon}
@@ -111,7 +111,7 @@ export default function SubscriptionIcon({ item, size = 56 }: SubscriptionIconPr
   }
 
   // 5. If item has explicit vector icon
-  if (item.iconType === 'vector' && item.vectorIcon) {
+  if (item?.iconType === 'vector' && item.vectorIcon) {
     return (
       <View
         style={{
@@ -145,7 +145,7 @@ export default function SubscriptionIcon({ item, size = 56 }: SubscriptionIconPr
           width: size,
           height: size,
           borderRadius: 14,
-          backgroundColor: detected.iconBg || getMonogramBackground(name, item.category),
+          backgroundColor: detected.iconBg || getMonogramBackground(name, item?.category),
           alignItems: 'center',
           justifyContent: 'center',
           shadowColor: '#000',
@@ -170,14 +170,14 @@ export default function SubscriptionIcon({ item, size = 56 }: SubscriptionIconPr
   }
 
   // 7. If explicit custom monogram
-  if (item.iconType === 'monogram' && item.monogram) {
+  if (item?.iconType === 'monogram' && item.monogram) {
     return (
       <View
         style={{
           width: size,
           height: size,
           borderRadius: 14,
-          backgroundColor: item.iconBg || getMonogramBackground(name, item.category),
+          backgroundColor: item.iconBg || getMonogramBackground(name, item?.category),
           alignItems: 'center',
           justifyContent: 'center',
           shadowColor: '#000',
@@ -203,7 +203,7 @@ export default function SubscriptionIcon({ item, size = 56 }: SubscriptionIconPr
 
   // 8. Ultimate fallback: Dynamic stylish monogram
   const initials = getInitials(name);
-  const bg = getMonogramBackground(name, item.category);
+  const bg = getMonogramBackground(name, item?.category);
 
   return (
     <View

@@ -4,6 +4,7 @@ import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { icons } from "@/constants/icons";
+import { posthog } from "@/config/posthog";
 
 export default function OnboardingScreen() {
   const router = useRouter();
@@ -75,7 +76,13 @@ export default function OnboardingScreen() {
 
       <View className="mb-4">
         <Pressable
-          onPress={() => router.replace("/(tabs)")}
+          onPress={() => {
+            posthog?.capture("onboarding_completed");
+            posthog?.logger?.info("onboarding completed", {
+              event: "onboarding_completed",
+            });
+            router.replace("/(tabs)");
+          }}
           className="rounded-2xl bg-accent py-4 items-center justify-center shadow-md active:opacity-90"
         >
           <Text className="text-base font-sans-bold text-primary">

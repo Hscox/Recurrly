@@ -1,4 +1,5 @@
 import { useClerk, useUser } from "@clerk/clerk-expo";
+import { posthog } from "@/config/posthog";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
@@ -31,6 +32,7 @@ export default function SettingsScreen() {
             setSigningOut(true);
             try {
               await signOut();
+              posthog?.reset();
               router.replace("/(auth)/sign-in");
             } catch (err) {
               Alert.alert("Error", "Failed to sign out. Please try again.");
