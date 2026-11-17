@@ -40,8 +40,7 @@ export default function TabLayout() {
         tabBarStyle: {
           position: "absolute",
           bottom: 25,
-          left: 20,
-          right: 20,
+          marginHorizontal: 20,
           height: 66,
           borderRadius: 50,
           backgroundColor: "#081126",
@@ -53,6 +52,17 @@ export default function TabLayout() {
           shadowRadius: 16,
           paddingBottom: 0,
           paddingTop: 0,
+          paddingHorizontal: 8,
+        },
+        tabBarItemStyle: {
+          height: 66,
+          justifyContent: "center",
+          alignItems: "center",
+        },
+        tabBarIconStyle: {
+          flex: 1,
+          width: "100%",
+          height: "100%",
         },
       }}
     >
