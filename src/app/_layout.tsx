@@ -1,8 +1,8 @@
-import { ClerkLoaded, ClerkProvider, useUser } from "@clerk/clerk-expo";
+import { ClerkLoaded, ClerkProvider, useUser } from "@clerk/expo";
+import { tokenCache } from "@clerk/expo/token-cache";
 import { useFonts } from "expo-font";
 import { Stack, usePathname } from "expo-router";
 import { PostHogProvider } from "posthog-react-native";
-import * as SecureStore from "expo-secure-store";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect, useRef } from "react";
 import "../../global.css";
@@ -10,23 +10,6 @@ import { posthog } from "@/config/posthog";
 import { SubscriptionProvider } from "@/context/SubscriptionContext";
 
 SplashScreen.preventAutoHideAsync();
-
-const tokenCache = {
-  async getToken(key: string) {
-    try {
-      return await SecureStore.getItemAsync(key);
-    } catch (err) {
-      return null;
-    }
-  },
-  async saveToken(key: string, value: string) {
-    try {
-      await SecureStore.setItemAsync(key, value);
-    } catch (err) {
-      return;
-    }
-  },
-};
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 

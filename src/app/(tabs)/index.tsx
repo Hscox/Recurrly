@@ -8,7 +8,7 @@ import UpcomingCard from "@/components/UpcomingCard";
 import { upcomingRenewals } from "@/constants/data";
 import { useSubscriptions } from "@/context/SubscriptionContext";
 import { useRouter } from "expo-router";
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { FlatList, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 

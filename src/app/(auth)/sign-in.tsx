@@ -3,7 +3,8 @@ import { AuthErrorAlert } from "@/components/auth/AuthErrorAlert";
 import { AuthHeader } from "@/components/auth/AuthHeader";
 import { AuthInput } from "@/components/auth/AuthInput";
 import { posthog } from "@/config/posthog";
-import { useAuth, useSignIn } from "@clerk/clerk-expo";
+import { useAuth } from "@clerk/expo";
+import { useSignIn } from "@clerk/expo/legacy";
 import { Link, useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {

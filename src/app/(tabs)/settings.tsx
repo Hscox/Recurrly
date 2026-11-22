@@ -1,4 +1,4 @@
-import { useClerk, useUser } from "@clerk/clerk-expo";
+import { useClerk, useUser } from "@clerk/expo";
 import { posthog } from "@/config/posthog";
 import { useRouter } from "expo-router";
 import React, { useState } from "react";
